@@ -1,0 +1,61 @@
+main {
+  display: flex;
+  height: 100vh;
+}
+
+.form-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45%;
+}
+
+.form-section-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+
+  border: 1px solid #dfdfd6;
+}
+
+.form-section img {
+  width: 150px;
+}
+
+.google-con {
+  display: flex;
+  justify-content: center;
+  width: 200px;
+  border: 1px solid #dfdfd6;
+  border-radius: 50px;
+  padding: 1em;
+  cursor: pointer;
+}
+
+.google-con img {
+  width: 25px;
+  margin-right: 0.75em;
+}
+
+.google-con button {
+  all: unset;
+  font-size: 1.6rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.banner-section {
+  width: 55%;
+}
+
+.banner-section img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

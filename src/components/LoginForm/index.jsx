@@ -8,45 +8,47 @@ class LoginForm extends Component {
     return (
       <main>
         <section className="form-section">
-          <img
-            src="https://res.cloudinary.com/dkoqbt4pc/image/upload/v1726574131/mydas-shopping-logo.png"
-            alt="mydas-logo"
-          />
-          <h1>
-            Hey,
-            <br />
-            you can login here!
-          </h1>
-
-          <button>
+          <div className="form-section-content">
             <img
-              src="https://res.cloudinary.com/dkoqbt4pc/image/upload/v1726657793/google-logo.png"
-              alt="google-logo"
+              src="https://res.cloudinary.com/dkoqbt4pc/image/upload/v1726574131/mydas-shopping-logo.png"
+              alt="mydas-logo"
             />
-            Sign-in with Google
-          </button>
+            <h1>
+              Hey,
+              <br />
+              you can login here!
+            </h1>
 
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor="username">Username *</label>
-            <input
-              type="text"
-              id="username"
-              placeholder="jdSDUFiug@gmail.com"
-            />
+            <div className="google-con">
+              <img
+                src="https://res.cloudinary.com/dkoqbt4pc/image/upload/v1726657793/google-logo.png"
+                alt="google-logo"
+              />
+              <button>Sign-in with Google</button>
+            </div>
 
-            <label htmlFor="password">Password *</label>
-            <input
-              type="password"
-              id="password"
-              placeholder="Min. 8 characters"
-            />
+            <form onSubmit={this.handleSubmit}>
+              <label htmlFor="username">Username *</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="jdSDUFiug@gmail.com"
+              />
 
-            <button className="forgot-password-btn">Forgot Password?</button>
+              <label htmlFor="password">Password *</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Min. 8 characters"
+              />
 
-            <button className="login-button" type="submit">
-              Login
-            </button>
-          </form>
+              <button className="forgot-password-btn">Forgot Password?</button>
+
+              <button className="login-button" type="submit">
+                Login
+              </button>
+            </form>
+          </div>
         </section>
 
         <section className="banner-section">
