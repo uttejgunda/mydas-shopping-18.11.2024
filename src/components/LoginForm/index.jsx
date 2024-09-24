@@ -10,6 +10,7 @@ class LoginForm extends Component {
         <section className="form-section">
           <div className="form-section-content">
             <img
+              className="mydas-logo"
               src="https://res.cloudinary.com/dkoqbt4pc/image/upload/v1726574131/mydas-shopping-logo.png"
               alt="mydas-logo"
             />
@@ -32,7 +33,7 @@ class LoginForm extends Component {
               <input
                 type="text"
                 id="username"
-                placeholder="jdSDUFiug@gmail.com"
+                placeholder="testing@gmail.com"
               />
 
               <label htmlFor="password">Password *</label>
@@ -44,7 +45,7 @@ class LoginForm extends Component {
 
               <button className="forgot-password-btn">Forgot Password?</button>
 
-              <button className="login-button" type="submit">
+              <button className="login-btn" type="submit">
                 Login
               </button>
             </form>
@@ -53,8 +54,8 @@ class LoginForm extends Component {
 
         <section className="banner-section">
           <img
-            src="https://res.cloudinary.com/dkoqbt4pc/image/upload/v1726658779/antique-boutique-bg.jpg"
-            alt="antique-boutique-bg"
+            src="https://res.cloudinary.com/dkoqbt4pc/image/upload/v1727198188/woman-blocking-light.jpg"
+            alt="woman-blocking-light"
           />
         </section>
       </main>
@@ -63,3 +64,7 @@ class LoginForm extends Component {
 }
 
 export default LoginForm;
+
+// Hanging Hats: https://res.cloudinary.com/dkoqbt4pc/image/upload/v1727198151/hanging-hats.jpg
+// Woman Blocking Light: https://res.cloudinary.com/dkoqbt4pc/image/upload/v1727198188/woman-blocking-light.jpg
+// Bottles and Photos: https://res.cloudinary.com/dkoqbt4pc/image/upload/v1727198218/bottles-and-photos.jpg
