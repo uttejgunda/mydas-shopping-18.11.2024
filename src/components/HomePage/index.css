@@ -1,0 +1,35 @@
+.home-con {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5em 10em;
+}
+
+.home-con > img {
+  width: 400px;
+}
+
+.home-desc-content {
+  margin-right: 10 em;
+}
+
+.home-desc-content h1 {
+  color: var(--shade-3);
+  font-size: 4.2rem;
+  font-family: "Trebuchet MS", sans-serif;
+}
+
+.home-desc-content p {
+  color: var(--shade-3);
+  font-size: 1.8rem;
+}
+
+.home-desc-content button {
+  all: unset;
+  border-radius: 0.25em;
+  padding: 0.3em 0.6em;
+  margin-top: 0.5em;
+  color: var(--shade-0);
+  background-color: var(--primary);
+  font-size: 1.8rem;
+}

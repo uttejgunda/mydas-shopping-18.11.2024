@@ -1,0 +1,44 @@
+nav {
+  display: flex;
+  padding: 0 10em;
+  border-bottom: 1px solid var(--shade-1);
+}
+
+nav img {
+  width: 120px;
+}
+
+nav div {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+}
+
+nav button {
+  all: unset;
+  cursor: pointer;
+}
+
+nav div > button {
+  border-radius: 0.25em;
+  padding: 0.3em 0.6em;
+  margin-left: 3em;
+  color: var(--shade-0);
+  background-color: var(--primary);
+  font-size: 1.4rem;
+}
+
+ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  gap: 2em;
+  list-style-type: none;
+}
+
+ul li {
+  color: var(--shade-3);
+  font-size: 2rem;
+}

@@ -2,9 +2,45 @@ import { Component } from "react";
 import "./index.css";
 
 class LoginForm extends Component {
-  state = {};
+  state = { username: "", password: "" };
+
+  submitForm = async (event) => {
+    event.preventDefault();
+    const { username, password } = this.state;
+
+    const userData = {
+      username,
+      password,
+    };
+
+    const options = {
+      method: "POST",
+      // headers: {
+      //   "Content-Type": "application/json",
+      //   Accept: "application/json",
+      // },
+      body: JSON.stringify(userData),
+    };
+
+    // fetch (url, options)
+    // options = {headers: {}, body: JSON string}
+
+    const response = await fetch("https://apis.ccbp.in/login", options);
+
+    console.log(response);
+  };
+
+  onChangeUsernameInput = (event) => {
+    this.setState({ username: event.target.value });
+  };
+
+  onChangePasswordInput = (event) => {
+    this.setState({ password: event.target.value });
+  };
 
   render() {
+    const { username, password } = this.state;
+
     return (
       <main>
         <section className="form-section">
@@ -28,12 +64,14 @@ class LoginForm extends Component {
               <button>Sign-in with Google</button>
             </div>
 
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.submitForm}>
               <label htmlFor="username">Username *</label>
               <input
                 type="text"
                 id="username"
                 placeholder="testing@gmail.com"
+                onChange={this.onChangeUsernameInput}
+                value={username}
               />
 
               <label htmlFor="password">Password *</label>
@@ -41,6 +79,8 @@ class LoginForm extends Component {
                 type="password"
                 id="password"
                 placeholder="Min. 8 characters"
+                onChange={this.onChangePasswordInput}
+                value={password}
               />
 
               <button className="forgot-password-btn">Forgot Password?</button>
