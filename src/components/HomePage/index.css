@@ -1,7 +1,8 @@
 .home-con {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+
   padding: 5em 10em;
 }
 
@@ -10,7 +11,7 @@
 }
 
 .home-desc-content {
-  margin-right: 10 em;
+  width: 55%;
 }
 
 .home-desc-content h1 {

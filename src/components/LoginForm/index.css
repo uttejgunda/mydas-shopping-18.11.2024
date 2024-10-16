@@ -94,6 +94,11 @@ form input {
   cursor: pointer;
 }
 
+.error-text {
+  color: red;
+  font-size: 1.2rem;
+}
+
 .banner-section {
   width: 55%;
 }

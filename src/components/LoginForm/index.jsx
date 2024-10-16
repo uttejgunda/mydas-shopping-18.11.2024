@@ -1,12 +1,36 @@
+import { Redirect } from "react-router-dom";
+import Cookies from "js-cookie";
+
 import { Component } from "react";
 import "./index.css";
 
 class LoginForm extends Component {
-  state = { username: "", password: "" };
+  state = { username: "", password: "", loginError: false, errorMsg: "" };
+
+  onSubmitSuccess = (jwtToken) => {
+    // Navigate to the HomePage
+
+    Cookies.set("jwt_token", jwtToken, {
+      expires: 7,
+    });
+
+    const { history } = this.props;
+
+    // history.push("/");
+    history.replace("/");
+
+    console.log(this.props);
+  };
+
+  onSubmitFailure = (errorMsg) => {
+    this.setState({ loginError: true, errorMsg });
+  };
 
   submitForm = async (event) => {
     event.preventDefault();
     const { username, password } = this.state;
+
+    const URL = "https://apis.ccbp.in/login";
 
     const userData = {
       username,
@@ -25,9 +49,16 @@ class LoginForm extends Component {
     // fetch (url, options)
     // options = {headers: {}, body: JSON string}
 
-    const response = await fetch("https://apis.ccbp.in/login", options);
+    const response = await fetch(URL, options);
+    const data = await response.json();
 
-    console.log(response);
+    console.log(data);
+
+    if (response.ok) {
+      this.onSubmitSuccess(data.jwt_token);
+    } else {
+      this.onSubmitFailure(data.error_msg);
+    }
   };
 
   onChangeUsernameInput = (event) => {
@@ -39,7 +70,12 @@ class LoginForm extends Component {
   };
 
   render() {
-    const { username, password } = this.state;
+    const { username, password, loginError, errorMsg } = this.state;
+    const token = Cookies.get("jwt_token");
+
+    if (token) {
+      return <Redirect to="/" />;
+    }
 
     return (
       <main>
@@ -88,6 +124,8 @@ class LoginForm extends Component {
               <button className="login-btn" type="submit">
                 Login
               </button>
+
+              {loginError && <p className="error-text">*{errorMsg}</p>}
             </form>
           </div>
         </section>
