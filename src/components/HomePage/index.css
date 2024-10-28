@@ -33,4 +33,5 @@
   color: var(--shade-0);
   background-color: var(--primary);
   font-size: 1.8rem;
+  cursor: pointer;
 }
