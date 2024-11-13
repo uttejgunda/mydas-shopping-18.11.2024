@@ -1,0 +1,17 @@
+.loader-con {
+  display: flex;
+  place-content: center;
+}
+
+.all-products-section {
+  display: flex;
+  justify-content: center;
+  padding: 0 0em 5em 10em;
+  margin-right: 15em;
+}
+
+.all-products-cards-con {
+  display: flex;
+  width: 850px;
+  padding-left: 7em;
+}

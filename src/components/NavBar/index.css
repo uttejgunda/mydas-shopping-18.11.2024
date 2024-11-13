@@ -34,7 +34,7 @@ nav div > button {
   font-size: 1.4rem;
 }
 
-ul {
+nav ul {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,7 +43,7 @@ ul {
   list-style-type: none;
 }
 
-ul li {
+nav ul li {
   color: var(--shade-3);
   font-size: 2rem;
 }

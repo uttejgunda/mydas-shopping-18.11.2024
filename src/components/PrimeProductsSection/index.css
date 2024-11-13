@@ -1,0 +1,20 @@
+.prime-products-cards-con {
+  display: flex;
+  justify-content: center;
+}
+
+.prime-products-header-con {
+  padding: 0 13.5em;
+}
+
+.failure-banner {
+  height: 350px;
+  width: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.loader-con {
+  display: flex;
+  place-content: center;
+}

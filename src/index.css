@@ -22,11 +22,3 @@ html {
 body {
   margin: 0;
 }
-
-img,
-picture,
-svg,
-video {
-  display: block;
-  max-width: 100%;
-}

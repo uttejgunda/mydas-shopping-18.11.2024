@@ -7,8 +7,10 @@ import "./index.css";
 const ProductsPage = () => (
   <div className="products-bg-con">
     <NavBar />
-    <PrimeProductsSection />
-    <AllProductsSection />
+    <div>
+      <PrimeProductsSection />
+      <AllProductsSection />
+    </div>
   </div>
 );
 
