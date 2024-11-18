@@ -13,8 +13,6 @@ const FiltersGroup = (props) => {
     updateActiveRating,
   } = props;
 
-  console.log(ratingsList);
-
   const onEnterSearchInput = (event) => {
     updateSearchText(event.target.value);
   };
@@ -26,12 +24,10 @@ const FiltersGroup = (props) => {
   };
 
   const onCategoryClick = (event) => {
-    console.log("onCategoryClick:", event);
     updateActiveCategory(event.target.id);
   };
 
   const onRatingClick = (event) => {
-    console.log("onRatingClick: ", event.target.id);
     updateActiveRating(event.target.id);
   };
 
@@ -62,7 +58,7 @@ const FiltersGroup = (props) => {
         <ul>
           {categoryOptions.map((eachObj) => {
             const categoryClassName =
-              eachObj.categoryID === activeCategoryID
+              eachObj.categoryID == activeCategoryID
                 ? "active-category-name"
                 : "";
 

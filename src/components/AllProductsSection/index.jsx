@@ -117,7 +117,6 @@ class AllProductsSection extends Component {
 
     const { activeOptionID, searchText, activeCategoryID, activeRatingID } =
       this.state;
-    console.log("This is the activeRatingID: ", activeRatingID);
     const URL = `https://apis.ccbp.in/products?sort_by=${activeOptionID}&category=${activeCategoryID}&title_search=${searchText}&rating=${activeRatingID}`;
     const jwtToken = Cookies.get("jwt_token");
 
