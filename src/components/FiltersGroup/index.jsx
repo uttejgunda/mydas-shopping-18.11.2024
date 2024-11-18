@@ -10,7 +10,10 @@ const FiltersGroup = (props) => {
     updateSearchText,
     triggerSearch,
     ratingsList,
+    updateActiveRating,
   } = props;
+
+  console.log(ratingsList);
 
   const onEnterSearchInput = (event) => {
     updateSearchText(event.target.value);
@@ -22,8 +25,14 @@ const FiltersGroup = (props) => {
     }
   };
 
-  const onCategoryClick = (event.target) => {
-    updateActiveCategory();
+  const onCategoryClick = (event) => {
+    console.log("onCategoryClick:", event);
+    updateActiveCategory(event.target.id);
+  };
+
+  const onRatingClick = (event) => {
+    console.log("onRatingClick: ", event.target.id);
+    updateActiveRating(event.target.id);
   };
 
   return (
@@ -39,18 +48,35 @@ const FiltersGroup = (props) => {
         <FiSearch className="search-icon" />
       </div>
 
+      {/* categoryOptions.map(eachObj => {
+      const {activeCategoryId} = props
+      const isActive = eachObj.categoryId === activeCategoryId
+      const categoryClassName = isActive
+        ? category-name active-category-name
+        : category-name
+
+          className={categoryClassName} */}
+
       <div className="category-con">
         <h2>Category</h2>
         <ul>
-          {categoryOptions.map((eachObj) => (
-            <li
-              onClick={onCategoryClick}
-              value={activeCategoryID}
-              key={eachObj.categoryID}
-            >
-              {eachObj.categoryText}
-            </li>
-          ))}
+          {categoryOptions.map((eachObj) => {
+            const categoryClassName =
+              eachObj.categoryID === activeCategoryID
+                ? "active-category-name"
+                : "";
+
+            return (
+              <li
+                onClick={onCategoryClick}
+                className={categoryClassName}
+                id={eachObj.categoryID}
+                key={eachObj.categoryID}
+              >
+                {eachObj.categoryText}
+              </li>
+            );
+          })}
         </ul>
       </div>
 
@@ -58,7 +84,11 @@ const FiltersGroup = (props) => {
         <h2>Ratings</h2>
         <ul>
           {ratingsList.map((eachObj) => (
-            <li key={eachObj.ratingID}>
+            <li
+              onClick={onRatingClick}
+              id={eachObj.ratingID}
+              key={eachObj.ratingID}
+            >
               <img src={eachObj.imgURL} alt="rating img" />& up
             </li>
           ))}

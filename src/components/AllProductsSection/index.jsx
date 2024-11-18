@@ -79,6 +79,7 @@ class AllProductsSection extends Component {
     activeOptionID: sortByOptions[1].optionID,
     searchText: "",
     activeCategoryID: "",
+    activeRatingID: "",
     isLoading: false,
   };
 
@@ -98,11 +99,26 @@ class AllProductsSection extends Component {
     this.setState({ activeCategoryID: categoryID }, this.getAllProducts);
   };
 
+  updateActiveRating = (ratingID) => {
+    // If the callback function is getAllProducts, the result doesn't appear.
+
+    this.setState({ activeRatingID: ratingID }, this.getAllProducts);
+  };
+
+  // consoleFunction = () => {
+  //   // Testing method to check what is in activeRatingID
+
+  //   const { activeRatingID } = this.state;
+  //   console.log("This is updateActiveRating:", activeRatingID);
+  // };
+
   getAllProducts = async () => {
     this.setState({ isLoading: true });
 
-    const { activeOptionID, searchText } = this.state;
-    const URL = `https://apis.ccbp.in/products?sort_by=${activeOptionID}&title_search=${searchText}`;
+    const { activeOptionID, searchText, activeCategoryID, activeRatingID } =
+      this.state;
+    console.log("This is the activeRatingID: ", activeRatingID);
+    const URL = `https://apis.ccbp.in/products?sort_by=${activeOptionID}&category=${activeCategoryID}&title_search=${searchText}&rating=${activeRatingID}`;
     const jwtToken = Cookies.get("jwt_token");
 
     const options = {
@@ -141,7 +157,7 @@ class AllProductsSection extends Component {
   };
 
   renderProducts = () => {
-    const { productsList, activeOptionID, activeCategoryID } = this.state;
+    const { productsList, activeOptionID } = this.state;
 
     return (
       <div>
@@ -164,7 +180,7 @@ class AllProductsSection extends Component {
   }
 
   render() {
-    const { searchText, isLoading } = this.state;
+    const { searchText, activeCategoryID, isLoading } = this.state;
 
     return (
       <div className="all-products-section">
@@ -176,6 +192,7 @@ class AllProductsSection extends Component {
           activeCategoryID={activeCategoryID}
           updateActiveCategory={this.updateActiveCategory}
           ratingsList={ratingsList}
+          updateActiveRating={this.updateActiveRating}
         />
         <div>{isLoading ? this.renderLoader() : this.renderProducts()}</div>
       </div>
