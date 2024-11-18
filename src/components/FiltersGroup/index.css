@@ -47,8 +47,9 @@ aside {
   cursor: pointer;
 }
 
-.category-con ul li .active-category-name {
+.active-category-name {
   color: blue !important;
+  font-weight: bold;
 }
 
 .ratings-con h2 {

@@ -101,7 +101,7 @@ class AllProductsSection extends Component {
 
   updateActiveRating = (ratingID) => {
     // If the callback function is getAllProducts, the result doesn't appear.
-
+    console.log(ratingID);
     this.setState({ activeRatingID: ratingID }, this.getAllProducts);
   };
 
@@ -118,6 +118,8 @@ class AllProductsSection extends Component {
     const { activeOptionID, searchText, activeCategoryID, activeRatingID } =
       this.state;
     const URL = `https://apis.ccbp.in/products?sort_by=${activeOptionID}&category=${activeCategoryID}&title_search=${searchText}&rating=${activeRatingID}`;
+
+    console.log(URL);
     const jwtToken = Cookies.get("jwt_token");
 
     const options = {

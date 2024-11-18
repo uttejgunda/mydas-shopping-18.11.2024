@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FiSearch } from "react-icons/fi";
 import "./index.css";
 
@@ -28,7 +29,10 @@ const FiltersGroup = (props) => {
   };
 
   const onRatingClick = (event) => {
-    updateActiveRating(event.target.id);
+    updateActiveRating(event.currentTarget.id);
+
+    // TARGET - Target gives you the element where the event exactly happened
+    // CURENTTARGET - This gives you the element where the event listener is placed, even if the event happened at one of its child elements
   };
 
   return (
