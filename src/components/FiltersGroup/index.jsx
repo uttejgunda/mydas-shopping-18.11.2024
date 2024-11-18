@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { FiSearch } from "react-icons/fi";
 import "./index.css";
 
@@ -13,8 +14,6 @@ const FiltersGroup = (props) => {
     updateActiveRating,
   } = props;
 
-  console.log(ratingsList);
-
   const onEnterSearchInput = (event) => {
     updateSearchText(event.target.value);
   };
@@ -26,13 +25,14 @@ const FiltersGroup = (props) => {
   };
 
   const onCategoryClick = (event) => {
-    console.log("onCategoryClick:", event);
     updateActiveCategory(event.target.id);
   };
 
   const onRatingClick = (event) => {
-    console.log("onRatingClick: ", event.target.id);
-    updateActiveRating(event.target.id);
+    updateActiveRating(event.currentTarget.id);
+
+    // TARGET - Target gives you the element where the event exactly happened
+    // CURENTTARGET - This gives you the element where the event listener is placed, even if the event happened at one of its child elements
   };
 
   return (
@@ -62,7 +62,7 @@ const FiltersGroup = (props) => {
         <ul>
           {categoryOptions.map((eachObj) => {
             const categoryClassName =
-              eachObj.categoryID === activeCategoryID
+              eachObj.categoryID == activeCategoryID
                 ? "active-category-name"
                 : "";
 
